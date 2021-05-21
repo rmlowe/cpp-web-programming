@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro web development with C++ and CGI</title>
+</head>
+<body>
+    <h1>Retro web development with C++ and CGI</h1>
+    <p><a href="/cgi-bin/cplusplus.cgi">Hello World</a></p>
+    <p><a href="/cgi-bin/envvar.cgi">CGI environment variables</a></p>
+
+    <h2>Simple for using GET</h2>
+    <form action = "/cgi-bin/cpp_get.cgi" method = "get">
+        First Name: <input type = "text" name = "first_name">  <br />
+        
+        Last Name: <input type = "text" name = "last_name" />
+        <input type = "submit" value = "Submit" />
+    </form>
+
+    <h2>Simple form using POST</h2>
+    <form action = "/cgi-bin/cpp_get.cgi" method = "post">
+        First Name: <input type = "text" name = "first_name"><br />
+        Last Name: <input type = "text" name = "last_name" />
+      
+        <input type = "submit" value = "Submit" />
+     </form>
+
+     <h2>Checkbox data</h2>
+     <form action = "/cgi-bin/cpp_checkbox.cgi" method = "POST" target = "_blank">
+        <input type = "checkbox" name = "maths" value = "on" /> Maths
+        <input type = "checkbox" name = "physics" value = "on" /> Physics
+        <input type = "submit" value = "Select Subject" />
+     </form>
+</body>
+</html>
