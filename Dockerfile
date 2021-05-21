@@ -15,4 +15,5 @@ RUN g++ -o cgi-bin/cplusplus.cgi src/cplusplus.cpp \
  && g++ -o cgi-bin/cpp_get.cgi src/cpp_get.cpp -lcgicc \
  && g++ -o cgi-bin/cpp_checkbox.cgi src/cpp_checkbox.cpp -lcgicc \
  && g++ -o cgi-bin/cpp_radiobutton.cgi src/cpp_radiobutton.cpp -lcgicc \
- && g++ -o cgi-bin/cpp_textarea.cgi src/cpp_textarea.cpp -lcgicc
+ && g++ -o cgi-bin/cpp_textarea.cgi src/cpp_textarea.cpp -lcgicc \
+ && g++ -o cgi-bin/cpp_dropdown.cgi src/cpp_dropdown.cpp -lcgicc
