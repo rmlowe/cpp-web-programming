@@ -62,5 +62,12 @@
      <h2>Cookies</h2>
     <p><a href="/cgi-bin/setcookies.cgi">Set cookies</a></p>
     <p><a href="/cgi-bin/getcookies.cgi">Retrieve cookies</a></p>
+
+    <h2>File upload</h2>
+    <form enctype = "multipart/form-data" action = "/cgi-bin/cpp_uploadfile.cgi"
+         method = "post">
+         <p>File: <input type = "file" name = "userfile" /></p>
+         <p><input type = "submit" value = "Upload" /></p>
+    </form>
 </body>
 </html>

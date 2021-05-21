@@ -26,4 +26,5 @@ RUN g++ -o cgi-bin/cplusplus.cgi src/cplusplus.cpp \
  && g++ -o cgi-bin/cpp_textarea.cgi src/cpp_textarea.cpp -lcgicc \
  && g++ -o cgi-bin/cpp_dropdown.cgi src/cpp_dropdown.cpp -lcgicc \
  && g++ -o cgi-bin/setcookies.cgi src/setcookies.cpp -lcgicc \
- && g++ -o cgi-bin/getcookies.cgi src/getcookies.cpp -lcgicc
+ && g++ -o cgi-bin/getcookies.cgi src/getcookies.cpp -lcgicc \
+ && g++ -o cgi-bin/cpp_uploadfile.cgi src/cpp_uploadfile.cpp -lcgicc
