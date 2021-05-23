@@ -1,4 +1,4 @@
-FROM debian:buster-slim AS compile
+FROM httpd:2.4.46
 
 # Install the tools we need
 RUN apt update \
@@ -8,16 +8,17 @@ RUN apt update \
  && tar xzf cgicc-3.2.19.tar.gz
 
 # Build Cgicc
-WORKDIR /cgicc-3.2.19
+WORKDIR /usr/local/apache2/cgicc-3.2.19
 RUN ./configure --prefix=/usr && make && make install
-WORKDIR /
+WORKDIR /usr/local/apache2
 
-# Copy in the C++ source files
-COPY ./src/ /src/
+# Copy in the files we need
+COPY ./httpd.conf /usr/local/apache2/conf/httpd.conf
+COPY ./index.html /usr/local/apache2/htdocs/
+COPY ./src/ /usr/local/apache2/src/
 
 # Compile the CGI programs
-RUN mkdir cgi-bin \
- && g++ -o cgi-bin/cplusplus.cgi src/cplusplus.cpp \
+RUN g++ -o cgi-bin/cplusplus.cgi src/cplusplus.cpp \
  && g++ -o cgi-bin/envvar.cgi src/envvar.cpp \
  && g++ -o cgi-bin/cpp_get.cgi src/cpp_get.cpp -lcgicc \
  && g++ -o cgi-bin/cpp_checkbox.cgi src/cpp_checkbox.cpp -lcgicc \
@@ -27,11 +28,3 @@ RUN mkdir cgi-bin \
  && g++ -o cgi-bin/setcookies.cgi src/setcookies.cpp -lcgicc \
  && g++ -o cgi-bin/getcookies.cgi src/getcookies.cpp -lcgicc \
  && g++ -o cgi-bin/cpp_uploadfile.cgi src/cpp_uploadfile.cpp -lcgicc
-
-FROM httpd:2.4.46
-
-# Copy in the files we need
-COPY ./httpd.conf /usr/local/apache2/conf/httpd.conf
-COPY ./index.html /usr/local/apache2/htdocs/
-COPY --from=compile /cgi-bin/ /usr/local/apache2/cgi-bin/
-COPY --from=compile /usr/lib/libcgicc.so.3 /usr/lib/
