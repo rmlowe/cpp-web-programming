@@ -2,12 +2,12 @@
 #include <stdlib.h>
 using namespace std;
 
-const string ENV[ 24 ] = {
+const string ENV[27] = {
    "COMSPEC", "DOCUMENT_ROOT", "GATEWAY_INTERFACE",   
    "HTTP_ACCEPT", "HTTP_ACCEPT_ENCODING",             
    "HTTP_ACCEPT_LANGUAGE", "HTTP_CONNECTION",         
-   "HTTP_HOST", "HTTP_USER_AGENT", "PATH",            
-   "QUERY_STRING", "REMOTE_ADDR", "REMOTE_PORT",      
+   "HTTP_HOST", "HTTP_USER_AGENT", "PATH", "PATH_INFO", "PATH_TRANSLATED",
+   "QUERY_STRING", "REMOTE_ADDR", "REMOTE_HOST", "REMOTE_PORT",      
    "REQUEST_METHOD", "REQUEST_URI", "SCRIPT_FILENAME",
    "SCRIPT_NAME", "SERVER_ADDR", "SERVER_ADMIN",      
    "SERVER_NAME","SERVER_PORT","SERVER_PROTOCOL",     
@@ -22,7 +22,7 @@ int main () {
    cout << "<body>\n";
    cout << "<table border = \"0\" cellspacing = \"2\">";
 
-   for ( int i = 0; i < 24; i++ ) {
+   for ( int i = 0; i < 27; i++ ) {
       cout << "<tr><td>" << ENV[ i ] << "</td><td>";
       
       // attempt to retrieve value of environment variable
