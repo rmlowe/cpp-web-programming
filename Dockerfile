@@ -28,7 +28,7 @@ RUN mkdir cgi-bin \
  && g++ -o cgi-bin/getcookies.cgi src/getcookies.cpp -lcgicc \
  && g++ -o cgi-bin/cpp_uploadfile.cgi src/cpp_uploadfile.cpp -lcgicc
 
-FROM httpd:2.4.46
+FROM httpd:2.4.48
 
 # Copy in the files we need
 COPY ./httpd.conf /usr/local/apache2/conf/httpd.conf
